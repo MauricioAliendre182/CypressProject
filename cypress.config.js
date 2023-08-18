@@ -9,8 +9,6 @@ const preprocessor = require('@badeball/cypress-cucumber-preprocessor')
 // Import allure
 const allureWriter = require('@shelex/cypress-allure-plugin/writer')
 
-const values = {}
-
 
 // We will create an async function for the setupNodeEvents
 async function setupNodeEvents(on, config) {
@@ -19,25 +17,6 @@ async function setupNodeEvents(on, config) {
   // Implement the plugin
   // in this case Image Snapshot
   addMatchImageSnapshotPlugin(on ,config);
-
-  // We have access to the env variables
-  // config.env.variable = process.env.NODE_ENV ?? 'There is no variable'
-  
-  // Create the plugin to not use the cu.origin (case when
-  // your cypress version is lower than 10.00)
-  // IMPORTANT: At the moment to state a plugin
-  // we need to return something, no matter what (can be NULL)
-  // on('task', {
-  //   store(value){
-  //     const key =Object.keys(value)[0]
-  //     values[key] = value[key]
-  //     return null
-  //   },
-  //   get(key){
-  //     console.log('values', values)
-  //     return values[key] ?? "There is no value"
-  //   }
-  // })
 
   await preprocessor.addCucumberPreprocessorPlugin(on, config)
   // Configuration of webpack to determine the .feature extension in BDD
