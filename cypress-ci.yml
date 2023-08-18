@@ -1,0 +1,32 @@
+name: Casa Ideas Framework CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+      - name: Install Webpack
+        run: npm install --save-dev @babel/core @babel/preset-env babel-loader webpack
+      - name: Run Cypress Tests
+        run: npm run cucumber:tags:report
+      - name: Generate JUnit Report
+        run: junit:report
+      - name: Upload JUnit report
+        uses: actions/upload-artifact@v2
+        with:
+          name: Junit-report
+          path: results/junit/combined-report.xml
