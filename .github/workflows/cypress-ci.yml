@@ -21,6 +21,8 @@ jobs:
         run: npm install --legacy-peer-deps
       - name: Install Webpack
         run: npm install --save-dev @babel/core @babel/preset-env babel-loader webpack --legacy-peer-deps
+      - name: Install Junit Merger
+        run: npm install --save-dev junit-report-merger --legacy-peer-deps
       - name: Run Cypress Tests
         run: npm run cucumber:tags:report
       - name: Generate JUnit Report
