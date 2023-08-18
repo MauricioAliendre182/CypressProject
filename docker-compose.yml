@@ -1,0 +1,8 @@
+version: "4.22.0"
+services:
+    cypres_compose:
+        build:
+            context: ./
+            dockerfile: ./Dockerfile
+        volumes:
+            - ./dockerReports:/app/allure-results

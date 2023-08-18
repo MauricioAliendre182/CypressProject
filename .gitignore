@@ -1,0 +1,11 @@
+node_modules
+cypress/e2e/1-getting-started
+cypress/e2e/2-advanced-examples
+cypress/results/*
+cypress/reports/*
+cypress/screenshots/*
+cypress/videos/*
+mochawesome-report
+allure-results
+mochawesome.json
+dockerReports
