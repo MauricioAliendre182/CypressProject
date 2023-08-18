@@ -24,7 +24,7 @@ jobs:
       - name: Run Cypress Tests
         run: npm run cucumber:tags:report
       - name: Generate JUnit Report
-        run: junit:report
+        run: npm run junit:report
       - name: Upload JUnit report
         uses: actions/upload-artifact@v2
         with:
