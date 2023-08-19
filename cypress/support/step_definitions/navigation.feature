@@ -1,3 +1,4 @@
+@UI
 Feature: Navigation Product
 
     Background: 

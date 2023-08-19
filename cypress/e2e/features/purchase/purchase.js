@@ -13,6 +13,18 @@ When("the user selects the product {string} and aggregates {int} of it to the ca
         productPage.addToCart(product)
 });
 
+When("the user goes to the next section",
+    function() {
+        productPage.goToTheNextPage()
+    }
+) 
+
+When("the user goes to the final section",
+    function() {
+        productPage.goToTheFinalPage()
+    }
+) 
+
 When("the user reviews the cart icon", 
     function () {
         headerSection.clickOnCartIcon()
@@ -27,3 +39,9 @@ Then("the user should see the product {string} just added in the cart",
         headerSection.validateProductInTheCart(product)
         headerSection.eliminateProductFromCart(product)
 });
+
+Then("the user should see the product {string} in this section",
+    function (product) {
+        productPage.validateNextPage(product)
+    }
+)

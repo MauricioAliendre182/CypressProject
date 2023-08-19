@@ -92,6 +92,11 @@ export class ProductPage {
         const PRODUCT_NAME = this.productOptions.name_product_label.replace('PRODUCT', product.toString().toUpperCase())
         cy.xpath(PRODUCT_NAME, {timeout:8000}).should('be.visible')
     }
+
+    validateNextPage(product) {
+        const PRODUCT_NAME = this.productOptions.name_reference_button.replace('PRODUCT', product.toString().toUpperCase())
+        cy.xpath(PRODUCT_NAME, {timeout:8000}).last().should('be.visible')
+    }
 }
 
 export const productPage = new ProductPage();
