@@ -10,7 +10,7 @@ export class DetailsPage {
             
         }
         this.generalInformation = {
-            materiality: "//b[text()='MATERIALIDAD:']/ancestor::div[2]/descendant::p[text()='MATERIAL']",
+            materiality: "//b[text()='MATERIALIDAD:']/ancestor::div[2]/descendant::p[text()='TEXT']",
             measurements: "//b[text()='MEDIDAS:']/ancestor::div[2]/descendant::p[text()='MEASUREMENT']"
         }
         this.productDescription = "//span[text()='DESCRIPCIÓN DEL PRODUCTO']/ancestor::div[3]/descendant::p[text()='DESCRIPTION.']"
@@ -18,8 +18,7 @@ export class DetailsPage {
 
     setAQuanityOfProductsToTheCart(product, quantity) {
         const PRODUCT_INPUT = this.productOptions.input_quantity.replace('PRODUCT', product.toString().toUpperCase())
-        cy.xpath(PRODUCT_INPUT, {timeout:8000}).type('{selectAll}{backspace}')
-        cy.xpath(PRODUCT_INPUT).type(quantity.toString())
+        cy.xpath(PRODUCT_INPUT, {timeout:8000}).should('be.visible').type('{ctrl+a}',quantity.toString())
     }
 
     addAProductToTheCart(product) {
@@ -43,13 +42,13 @@ export class DetailsPage {
     }
 
     validateTheProductDescription(description) {
-        const DESCRIPTION = this.productDescription.replace('DESCRIPTION', description.toString().toUpperCase())
+        const DESCRIPTION = this.productDescription.replace('DESCRIPTION', description)
         cy.xpath(DESCRIPTION, {timeout:8000}).should('be.visible')
     }
 
     validateTheProductMaterial(material) {
-        const MATERIAL = this.generalInformation.materiality.replace('MATERIAL', material.toString().toUpperCase())
-        cy.xpath(MATERIAL, {timeout:8000}).should('be.visible')
+        const MATERIAL = this.generalInformation.materiality.replace('TEXT', material.toString().toUpperCase())
+        cy.xpath(MATERIAL, {timeout:8000}).first().should('be.visible')
     }
 
     validateTheProductMeasurement(measurement) {
@@ -57,3 +56,5 @@ export class DetailsPage {
         cy.xpath(MEASUREMENT, {timeout:8000}).last().should('be.visible')
     }
 }
+
+export const detailsPage = new DetailsPage();

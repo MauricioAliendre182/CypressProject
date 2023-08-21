@@ -1,4 +1,4 @@
-@UI
+@UI @Purchase
 Feature: purchase section
 
     Background: 
@@ -10,10 +10,10 @@ Feature: purchase section
     @Acceptance
     Scenario: Make a purchase
         Given The user selects the section "Muebles" and subsection "Mesas"
-        When the user selects the product "Mesa comedor mdf PP madera" and aggregates 1 of it to the cart
+        When the user selects the product "Mesa Doble Metal Plegable" and aggregates 1 of it to the cart
         Then the user should see that the product was added correctly
         When the user reviews the cart icon
-        Then the user should see the product "Mesa comedor mdf PP madera" just added in the cart
+        Then the user should see the product "Mesa Doble Metal Plegable" just added in the cart
     
     @Acceptance
     Scenario: Go to the next section

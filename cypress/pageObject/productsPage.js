@@ -1,22 +1,3 @@
-//a[text()='SPRAY AROMÁTICO 200 ML - VERBENA']
-//a[text()='SPRAY AROMÁTICO 200 ML - VERBENA']/ancestor::div[3]/div/a
-
-// Price
-//a[text()='SPRAY AROMÁTICO 200 ML - VERBENA']/ancestor::div[2]/descendant::div[2]/div/span
-
-// Buy section
-//a[text()='SPRAY AROMÁTICO 200 ML - VERBENA']/ancestor::div[2]/descendant::div[4]/descendant::i[contains(@class, 'minus')]/ancestor::button
-//a[text()='SPRAY AROMÁTICO 200 ML - VERBENA']/ancestor::div[2]/descendant::div[4]/descendant::i[contains(@class, 'plus')]/ancestor::button
-//a[text()='SPRAY AROMÁTICO 200 ML - VERBENA']/ancestor::div[2]/descendant::div[4]/descendant::input
-//a[text()='SPRAY AROMÁTICO 200 ML - VERBENA']/ancestor::div[2]/descendant::div[4]/descendant::span[text()='Agregar al carro']/ancestor::button
-//a[text()='SPRAY AROMÁTICO 200 ML - VERBENA']/ancestor::div[2]/descendant::div[4]/descendant::button[@aria-label='Add To Wishlist']
-
-// #next
-// #doublenext
-// select1
-
-// Aggregate something to the cart
-//div[text()='Agregado Correctamente al carro']
 export class ProductPage {
     constructor() {
         this.productOptions = {
@@ -37,33 +18,32 @@ export class ProductPage {
 
     goToTheDetailsOfTheProduct(product) {
         const PRODUCT_NAME = this.productOptions.img_reference_button.replace('PRODUCT', product.toString().toUpperCase())
-        cy.xpath(PRODUCT_NAME, {timeout:8000}).should('be.visible').click().should('be.visible')
+        cy.xpath(PRODUCT_NAME, {timeout:8000}).first().should('be.visible').click().should('be.visible')
     }
 
     setAQuanityOfProductsToTheCart(product, quantity) {
         const PRODUCT_INPUT = this.productOptions.input_quantity.replace('PRODUCT', product.toString().toUpperCase())
-        cy.xpath(PRODUCT_INPUT, {timeout:8000}).type('{selectAll}{backspace}')
-        cy.xpath(PRODUCT_INPUT).type(quantity.toString())
+        cy.xpath(PRODUCT_INPUT, {timeout:8000}).first().should('be.visible').type('{ctrl+a}',quantity.toString())
     }
 
     addAProductToTheCart(product) {
         const PRODUCT_NAME = this.productOptions.add_quantity_button.replace('PRODUCT', product.toString().toUpperCase())
-        cy.xpath(PRODUCT_NAME, {timeout:8000}).should('be.visible').click()
+        cy.xpath(PRODUCT_NAME, {timeout:8000}).first().should('be.visible').click()
     }
 
     reduceAProductToTheCart(product) {
         const PRODUCT_NAME = this.productOptions.reduce_quantity_button.replace('PRODUCT', product.toString().toUpperCase())
-        cy.xpath(PRODUCT_NAME, {timeout:8000}).should('be.visible').click()
+        cy.xpath(PRODUCT_NAME, {timeout:8000}).first().should('be.visible').click()
     }
 
     addToCart(product) {
         const PRODUCT_NAME = this.productOptions.add_to_cart_button.replace('PRODUCT', product.toString().toUpperCase())
-        cy.xpath(PRODUCT_NAME, {timeout:8000}).should('be.visible').click()
+        cy.xpath(PRODUCT_NAME, {timeout:8000}).first().should('be.visible').click()
     }
 
     addProductToWishlist(product) {
         const PRODUCT_NAME = this.productOptions.add_to_wishlist_button.replace('PRODUCT', product.toString().toUpperCase())
-        cy.xpath(PRODUCT_NAME, {timeout:8000}).should('be.visible').click()
+        cy.xpath(PRODUCT_NAME, {timeout:8000}).first().should('be.visible').click()
     }
 
     goToTheNextPage() {
