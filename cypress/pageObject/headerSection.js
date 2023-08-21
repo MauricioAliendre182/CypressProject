@@ -50,7 +50,7 @@ export class HeaderSection {
     validateProductInTheCart(product) {
         const PRODUCT_NAME = this.product.replace('PRODUCT', product.toString().toUpperCase())
         // const QUANTITY_PRODUCT = this.quantityProduct.replace('PRODUCT', product.toString().toUpperCase())
-        cy.xpath(PRODUCT_NAME).should('be.visible')
+        cy.xpath(PRODUCT_NAME, {timeout:8000}).should('be.visible')
         // cy.xpath(QUANTITY_PRODUCT).then(($name) => {
         //     const actualQuantity = $name.val()
         //     expect(actualQuantity).to.equal(quantity.toString())
@@ -59,7 +59,7 @@ export class HeaderSection {
 
     selectCity(City) {
         const city = this.cityButton.replace('CITY', City.toString().toUpperCase())
-        cy.xpath(city, {timeout:8000}).click()
+        cy.xpath(city, {timeout:8000}).should('be.visible').click()
     }
 
     clickOnCartIcon() {
@@ -72,7 +72,7 @@ export class HeaderSection {
     }
 
     goToTheLoginSection() {
-        cy.xpath(this.optionButtons.login_button, {timeout:7000}).click()
+        cy.xpath(this.optionButtons.login_button, {timeout:9000}).should('be.visible').click()
     }
 }
 

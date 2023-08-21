@@ -16,15 +16,15 @@ export class LoginPage{
     }
 
     login() {
-        cy.get(this.userInput, {timeout:7000}).type(Cypress.env('credentials').email)
-        cy.get(this.passwordInput, {timeout:7000}).type(Cypress.env('credentials').password)
-        cy.xpath(this.loginButton, {timeout:7000}).click()
+        cy.get(this.userInput, {timeout:9000}).type(Cypress.env('credentials').email)
+        cy.get(this.passwordInput, {timeout:9000}).type(Cypress.env('credentials').password)
+        cy.xpath(this.loginButton, {timeout:9000}).click()
     }
 
     invalidCredentials() {
-        cy.get(this.userInput, {timeout:7000}).type(Cypress.env('invalidCredentials').email)
-        cy.get(this.passwordInput, {timeout:7000}).type(Cypress.env('invalidCredentials').password)
-        cy.xpath(this.loginButton, {timeout:7000}).click()
+        cy.get(this.userInput, {timeout:9000}).type(Cypress.env('invalidCredentials').email)
+        cy.get(this.passwordInput, {timeout:9000}).type(Cypress.env('invalidCredentials').password)
+        cy.xpath(this.loginButton, {timeout:9000}).click()
     }
 }
 

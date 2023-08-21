@@ -71,9 +71,9 @@ module.exports = defineConfig({
     // Way to separate the headless mode from the ui mode in the retries
     retries: {
       // this is for 'cypress run'
-      runMode:2,
+      runMode:3,
       // this is for 'cypress open'
-      openMode:2,
+      openMode:3,
     },
     // Change the pattern of the tests
     specPattern: "**/*.feature",

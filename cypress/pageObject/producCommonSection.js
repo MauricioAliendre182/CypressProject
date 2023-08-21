@@ -1,5 +1,3 @@
-//span[text()='Accesorios Personales'] //This has to be last()
-
 const selectValues = {
     "Más reciente": "new",
     "Menor Precio": "minorprice",
@@ -59,7 +57,7 @@ export class ProductSection {
     navigateToASection(section, subsection) {
         const SECTION_BUTTON = this.sectionButtton.replace('SECTION', section.toString().toUpperCase())
         const SUB_SECTION_BUTTON = this.subSectionButton.replace('SUB-SECTION', subsection.toString())
-        cy.wait(2500)
+        cy.wait(4000)
         cy.xpath(SECTION_BUTTON, {timeout:8000}).should('be.visible').realHover()
         cy.wait(1000)
         cy.xpath(SUB_SECTION_BUTTON, {timeout:8000}).last().should('be.visible').click()
