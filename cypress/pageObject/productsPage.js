@@ -23,27 +23,27 @@ export class ProductPage {
 
     setAQuanityOfProductsToTheCart(product, quantity) {
         const PRODUCT_INPUT = this.productOptions.input_quantity.replace('PRODUCT', product.toString().toUpperCase())
-        cy.xpath(PRODUCT_INPUT, {timeout:8000}).should('be.visible').type('{ctrl+a}',quantity.toString())
+        cy.xpath(PRODUCT_INPUT, {timeout:8000}).first().should('be.visible').type('{ctrl+a}',quantity.toString())
     }
 
     addAProductToTheCart(product) {
         const PRODUCT_NAME = this.productOptions.add_quantity_button.replace('PRODUCT', product.toString().toUpperCase())
-        cy.xpath(PRODUCT_NAME, {timeout:8000}).should('be.visible').click()
+        cy.xpath(PRODUCT_NAME, {timeout:8000}).first().should('be.visible').click()
     }
 
     reduceAProductToTheCart(product) {
         const PRODUCT_NAME = this.productOptions.reduce_quantity_button.replace('PRODUCT', product.toString().toUpperCase())
-        cy.xpath(PRODUCT_NAME, {timeout:8000}).should('be.visible').click()
+        cy.xpath(PRODUCT_NAME, {timeout:8000}).first().should('be.visible').click()
     }
 
     addToCart(product) {
         const PRODUCT_NAME = this.productOptions.add_to_cart_button.replace('PRODUCT', product.toString().toUpperCase())
-        cy.xpath(PRODUCT_NAME, {timeout:8000}).should('be.visible').click()
+        cy.xpath(PRODUCT_NAME, {timeout:8000}).first().should('be.visible').click()
     }
 
     addProductToWishlist(product) {
         const PRODUCT_NAME = this.productOptions.add_to_wishlist_button.replace('PRODUCT', product.toString().toUpperCase())
-        cy.xpath(PRODUCT_NAME, {timeout:8000}).should('be.visible').click()
+        cy.xpath(PRODUCT_NAME, {timeout:8000}).first().should('be.visible').click()
     }
 
     goToTheNextPage() {

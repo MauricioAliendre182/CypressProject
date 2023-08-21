@@ -59,6 +59,7 @@ export class HeaderSection {
 
     selectCity(City) {
         const city = this.cityButton.replace('CITY', City.toString().toUpperCase())
+        cy.wait(2500)
         cy.xpath(city, {timeout:8000}).should('be.visible').click()
     }
 
