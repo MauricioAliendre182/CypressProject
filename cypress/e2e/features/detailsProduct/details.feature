@@ -23,4 +23,6 @@ Feature: Product Detail
         Then the user should see that the product was added correctly
         When the user reviews the cart icon
         Then the user should see the product "Babero con mangas estampado" just added in the cart
+        When the user eliminates the product "Babero con mangas estampado" just added in the cart
+        Then the user should see the message that a product was removed from the cart
 

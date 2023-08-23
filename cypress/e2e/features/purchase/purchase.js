@@ -30,6 +30,12 @@ When("the user reviews the cart icon",
         headerSection.clickOnCartIcon()
 });
 
+When("the user eliminates the product {string} just added in the cart",
+    function(product) {
+        headerSection.eliminateProductFromCart(product)
+    }
+)
+
 Then("the user should see that the product was added correctly", function () {
     productPage.validateThatAProductWasAddedToTheCart()
 });
@@ -37,8 +43,13 @@ Then("the user should see that the product was added correctly", function () {
 Then("the user should see the product {string} just added in the cart", 
     function (product) {
         headerSection.validateProductInTheCart(product)
-        headerSection.eliminateProductFromCart(product)
 });
+
+Then("the user should see the message that a product was removed from the cart",
+    function() {
+       productPage.validateThatAProductWasEliminatedFromCart()
+    }
+)
 
 Then("the user should see the product {string} in this section",
     function (product) {
