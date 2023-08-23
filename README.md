@@ -55,7 +55,7 @@ npm run allure:serve
 ```sh
 npm run run:dashboard
 ```
-- Run the tests in parallel in dashboard
+- Run the tests in parallel in dashboard (For this type of running it is neccesary to have a pipeline from a CI tool like Jenkins)
 ```sh
 npm run run:dashboard:parallel
 ```
@@ -73,3 +73,15 @@ npm run allure:serve:docker
 
 ## CI
 For every **pull request** and merge to the **main** branch, the CI will be executed, running the whole tests
+
+## Configurations
+### Dashboard run
+To run the dashboard it is neccesary to set the **projectId** and the **key**, the projectId must be replaced in the file **cypress.config.js** as the following:
+
+![ImagenCy2](https://github.com/RodrigoValda/TestTitanWordpress/assets/86843637/e4c1a503-b40f-49d0-a2de-627bb1e0cfb5)
+
+The key must be replaced in the file **package.json** instead of ***** symbols, which are the following:
+
+![ImagenCy1](https://github.com/RodrigoValda/TestTitanWordpress/assets/86843637/320c6f4f-32bb-450e-abfa-f6e737aa2c27)
+
+Both the **projectId** and the **key** can be found in the **Cypress Cloud settings**

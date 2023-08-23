@@ -14,6 +14,7 @@ export class ProductPage {
         this.nextPage = "#next"
         this.doubleNext = "#doublenext"
         this.alertAddToCart = "//div[text()='Agregado Correctamente al carro']"
+        this.alertToEliminateProduct = "//div[text()='Producto removido correctamente del carro']"
     }
 
     goToTheDetailsOfTheProduct(product) {
@@ -66,6 +67,10 @@ export class ProductPage {
 
     validateThatAProductWasAddedToTheCart() {
         cy.xpath(this.alertAddToCart, {timeout:8000}).contains('Agregado Correctamente al carro').should('be.visible')
+    }
+
+    validateThatAProductWasEliminatedFromCart() {
+        cy.xpath(this.alertToEliminateProduct, {timeout:8000}).contains('Producto removido correctamente del carro').should('be.visible')
     }
 
     validateThatTheUserIsOnDetailsProduct(product) {

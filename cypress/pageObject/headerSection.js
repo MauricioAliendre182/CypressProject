@@ -76,7 +76,9 @@ export class HeaderSection {
 
     eliminateProductFromCart(product) {
         const ELIMINATE_BUTTON = this.eliminateButton.replace('PRODUCT', product.toString().toUpperCase())
-        cy.xpath(ELIMINATE_BUTTON, {timeout:8000}).should('be.visible').click()
+        cy.xpath(ELIMINATE_BUTTON, {timeout:8000}).should('be.visible').click({force:true})
+        // cy.wait(1000)
+        // cy.xpath(ELIMINATE_BUTTON).click({force:true})
     }
 
     goToTheLoginSection() {

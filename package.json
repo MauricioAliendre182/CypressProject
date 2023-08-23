@@ -10,8 +10,8 @@
     "delete:results": "rm -r cypress/results/* || true",
     "allure:serve": "allure serve allure-results",
     "allure:serve:docker": "allure serve dockerReports",
-    "run:dashboard": "cypress run --record -key ****",
-    "run:dashboard:parallel": "cypress run --record -key **** --parallel"
+    "run:dashboard": "cypress run --record --key *****",
+    "run:dashboard:parallel": "cypress run --record --key ***** --parallel"
   },
   "keywords": [],
   "author": "",
