@@ -63,6 +63,13 @@ export class HeaderSection {
         cy.xpath(city, {timeout:8000}).should('be.visible').click()
     }
 
+    searchAProduct(product) {
+        cy.get(this.searchBar, {timeout:10000}).should('have.css', 'pointer-events', "auto").should('be.enabled')
+        cy.wait(5000)
+        cy.get(this.searchBar).type(product)
+        cy.get(this.searchBar).type('{enter}')
+    }
+
     clickOnCartIcon() {
         cy.xpath(this.optionButtons.purchase_button, {timeout:8000}).should('be.visible').click()
     }
