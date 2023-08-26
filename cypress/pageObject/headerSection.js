@@ -12,7 +12,7 @@ export class HeaderSection {
         };
         this.optionButtons = {
             track_order_button: "//button[contains(@class, 'mini-stores-icon')]",
-            store_button: "//a[contains(@href, 'tiendas')]",
+            store_button: "//a[contains(@href, 'tiendas')]/img",
             login_button: "//a[substring(@href, string-length(@href) - string-length('/account') +1) = '/account']",
             purchase_button: "//button[contains(@class, 'mini-cart-icon')]"
         }
@@ -49,12 +49,7 @@ export class HeaderSection {
 
     validateProductInTheCart(product) {
         const PRODUCT_NAME = this.product.replace('PRODUCT', product.toString().toUpperCase())
-        // const QUANTITY_PRODUCT = this.quantityProduct.replace('PRODUCT', product.toString().toUpperCase())
         cy.xpath(PRODUCT_NAME, {timeout:8000}).should('be.visible')
-        // cy.xpath(QUANTITY_PRODUCT).then(($name) => {
-        //     const actualQuantity = $name.val()
-        //     expect(actualQuantity).to.equal(quantity.toString())
-        // })
     }
 
     selectCity(City) {
@@ -77,12 +72,14 @@ export class HeaderSection {
     eliminateProductFromCart(product) {
         const ELIMINATE_BUTTON = this.eliminateButton.replace('PRODUCT', product.toString().toUpperCase())
         cy.xpath(ELIMINATE_BUTTON, {timeout:8000}).should('be.visible').click({force:true})
-        // cy.wait(1000)
-        // cy.xpath(ELIMINATE_BUTTON).click({force:true})
     }
 
     goToTheLoginSection() {
         cy.xpath(this.optionButtons.login_button, {timeout:9000}).should('be.visible').click()
+    }
+
+    goToTheStoreSection() {
+        cy.xpath(this.optionButtons.store_button, {timeout:8000}).first().should('be.visible').click({force:true})
     }
 }
 
