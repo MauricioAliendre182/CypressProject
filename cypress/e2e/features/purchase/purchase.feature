@@ -1,4 +1,4 @@
-@UI @Purchase
+@CI @UI @Purchase
 Feature: purchase section
 
     Background: 

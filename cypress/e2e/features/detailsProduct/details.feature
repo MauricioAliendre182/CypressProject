@@ -1,4 +1,4 @@
-@UI @Details
+@CI @UI @Details
 Feature: Product Detail
 
     Background: 

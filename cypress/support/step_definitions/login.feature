@@ -1,4 +1,4 @@
-@UI
+@CI @UI
 Feature: Login
     Background: 
         Given The user selects the city "La Paz"

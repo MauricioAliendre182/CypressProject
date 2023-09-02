@@ -11,6 +11,12 @@ When("the user searches a product with the name {string}",
     }
 )
 
+When("the user finds the product {string}",
+    function(product) {
+        searchPage.findProductByPage(product)
+    }
+)
+
 Then("the user should see the product {string}",
     function(product) {
         searchPage.validateThatTheProductIsPresent(product)

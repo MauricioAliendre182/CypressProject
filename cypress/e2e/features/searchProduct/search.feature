@@ -1,4 +1,4 @@
-@UI @Search
+@CI @UI @Search
 Feature: purchase section
 
     Background: 
@@ -10,4 +10,5 @@ Feature: purchase section
     @Acceptance
     Scenario: Search an specific product
         When the user searches a product with the name "Muebles"
-        Then the user should see the product "Repisa 2 bandejas larga plegable de 37cm bambú"
+        And the user finds the product "Silla Plegable Metal Color"
+        Then the user should see the product "Silla Plegable Metal Color"

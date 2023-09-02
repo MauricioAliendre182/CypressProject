@@ -4,7 +4,7 @@ export class HeaderSection {
             new_products_tab: "//a[text()='NUEVO']",
             kids_products_tab: "//a[text()='NIÑOS']",
             furniture_products_tab: "//a[text()='MUEBLES']",
-            furniture_products_tab: "//a[text()='PRODUCTOS DE TEMPORADA']",
+            furniture_season_products_tab: "//a[text()='PRODUCTOS DE TEMPORADA']",
             house_space_tab: "//a[text()='ESPACIOS DE LA CASA']",
             special_pets_tab: "//a[text()='ESPECIAL DE MASCOTAS']",
             discount_tab: "//a[text()='DESCUENTOS']",
@@ -54,7 +54,7 @@ export class HeaderSection {
 
     selectCity(City) {
         const city = this.cityButton.replace('CITY', City.toString().toUpperCase())
-        cy.wait(2500)
+        cy.wait(4000)
         cy.xpath(city, {timeout:8000}).should('be.visible').click()
     }
 
