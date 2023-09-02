@@ -24,7 +24,7 @@ jobs:
       - name: Install Junit Merger
         run: npm install --save-dev junit-report-merger --legacy-peer-deps
       - name: Run Cypress Tests
-        run: npm run cucumber:tags:report
+        run: npm run cucumber:ci:report
       - name: Generate JUnit Report
         run: npm run junit:report
       - name: Upload JUnit report

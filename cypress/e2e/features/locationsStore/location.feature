@@ -1,4 +1,4 @@
-@Location
+@UI @Location
 Feature: Location
 
     Background: 
