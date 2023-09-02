@@ -14,6 +14,8 @@ export class ProductPage {
         this.nextPage = "#next"
         this.doubleNext = "#doublenext"
         this.alertAddToCart = "//div[text()='Agregado Correctamente al carro']"
+        this.alertWishList = "//div[text()='Agregado a tu lista de deseos']"
+        this.alertElminateElementFromWishList = "//div[text()='Removido de tu lista de deseos']"
         this.alertToEliminateProduct = "//div[text()='Producto removido correctamente del carro']"
     }
 
@@ -67,6 +69,14 @@ export class ProductPage {
 
     validateThatAProductWasAddedToTheCart() {
         cy.xpath(this.alertAddToCart, {timeout:8000}).contains('Agregado Correctamente al carro').should('be.visible')
+    }
+
+    validateThatAProductWasAddedToTheWishList() {
+        cy.xpath(this.alertWishList, {timeout:8000}).contains('Agregado a tu lista de deseos').should('be.visible')
+    }
+
+    validateThatAProductWasDeletedFromWishList() {
+        cy.xpath(this.alertElminateElementFromWishList, {timeout:8000}).contains('Removido de tu lista de deseos').should('be.visible')
     }
 
     validateThatAProductWasEliminatedFromCart() {

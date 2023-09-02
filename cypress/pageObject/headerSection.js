@@ -16,6 +16,7 @@ export class HeaderSection {
             login_button: "//a[substring(@href, string-length(@href) - string-length('/account') +1) = '/account']",
             purchase_button: "//button[contains(@class, 'mini-cart-icon')]"
         }
+        this.subsectionLogin = "//a[text()='ELEMENT']"
         this.searchBar = "#search_input_web"
         this.cityButton = "//button[text()='CITY']"
         this.homeButton = "//input[@placeholder='Escribe tu búsqueda']/ancestor::div[4]/descendant::a[@href='/']"
@@ -63,6 +64,14 @@ export class HeaderSection {
         cy.wait(5000)
         cy.get(this.searchBar).type(product)
         cy.get(this.searchBar).type('{enter}')
+    }
+
+    goToTheWishListSection(section) {
+        const SUBSECTION = this.subsectionLogin.replace('ELEMENT', section.toString())
+        cy.wait(4000)
+        cy.xpath(this.optionButtons.login_button, {timeout:8000}).should('be.visible').realHover()
+        cy.wait(1000)
+        cy.xpath(SUBSECTION, {timeout:8000}).first().should('be.visible').click()
     }
 
     clickOnCartIcon() {

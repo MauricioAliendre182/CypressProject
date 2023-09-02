@@ -1,4 +1,4 @@
-@CI @UI @Details
+@CI @UI @About
 Feature: About Us Section
 
     Background: 
